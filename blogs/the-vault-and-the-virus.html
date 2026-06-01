@@ -10,270 +10,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
-  <style>
-    :root {
-      --ink: #0e0d0b;
-      --paper: #f5f0e8;
-      --cream: #ede8d8;
-      --muted: #7a7165;
-      --rule: #cfc9b8;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.75;
-      font-size: 17px;
-    }
-
-    header {
-      border-bottom: 2px solid var(--ink);
-      padding: 3rem 0 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 31px, var(--rule) 31px, var(--rule) 32px);
-      opacity: 0.4;
-    }
-
-    .kicker {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      position: relative;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      position: relative;
-      margin: 0.6rem 0 0.4rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .subtitle {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--muted);
-      position: relative;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .byline {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 1.6rem;
-      position: relative;
-    }
-
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    article {
-      padding: 4rem 0 6rem;
-    }
-
-    .thesis {
-      border-left: 4px solid var(--accent);
-      background: var(--cream);
-      padding: 1.6rem 2rem;
-      margin: 3rem 0;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      position: relative;
-    }
-
-    .thesis::before {
-      content: '"';
-      font-size: 5rem;
-      color: var(--accent);
-      opacity: 0.2;
-      position: absolute;
-      top: -1rem;
-      left: 0.8rem;
-      font-family: 'Playfair Display', serif;
-      line-height: 1;
-    }
-
-    .thesis-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.5rem;
-      font-style: normal;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin: 3.5rem 0 1rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    h2 .round-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .closing {
-      border-top: 2px solid var(--ink);
-      padding-top: 2.5rem;
-      margin-top: 4rem;
-    }
-
-    .closing p {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #3a3630;
-      line-height: 1.75;
-    }
-
-    p {
-      margin-bottom: 1.2rem;
-      max-width: 68ch;
-    }
-
-    .intro-graf {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #3a3630;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 3rem 0;
-      color: var(--muted);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
-
-    .analogy {
-      border: 1px solid var(--rule);
-      padding: 1.2rem 1.5rem;
-      margin: 1.5rem 0;
-      position: relative;
-      background: white;
-    }
-
-    .analogy-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .analogy p {
-      font-size: 0.93rem;
-      margin-bottom: 0;
-    }
-
-    footer {
-      border-top: 2px solid var(--ink);
-      padding: 2rem 0;
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    header .kicker,
-    h1,
-    .subtitle,
-    .byline {
-      animation: fadeUp 0.6s ease both;
-    }
-
-    h1 {
-      animation-delay: 0.1s;
-    }
-
-    .subtitle {
-      animation-delay: 0.2s;
-    }
-
-    .byline {
-      animation-delay: 0.3s;
-    }
-  </style>
 </head>
 
-<body style="--accent: #1a4a6b;">
+<body class="blog-article" style="--accent: #1a4a6b;">
 
   <header>
     <div class="wrap">
@@ -507,42 +246,65 @@
 
       <h2><span class="round-num">IX</span>The Mythos Proof</h2>
 
-      <p>On April 7th, 2026, Anthropic announced Claude Mythos Preview — a model described as so capable at offensive
-        cybersecurity that it could not be released to the public. It was made available to a small number of trusted
-        partners under the Project Glasswing initiative. On the same day, a group communicating through a private
-        Discord channel accessed the model by guessing its URL, based on familiarity with Anthropic's URL formatting
-        conventions for other models. They have been using it regularly since.</p>
+      <p>
+        On April 7th, 2026, Anthropic announced Claude Mythos Preview — described as sufficiently
+        capable at offensive cybersecurity that public access was not appropriate. It was made
+        available to a small number of trusted partners under Project Glasswing. On the same day,
+        a group accessed the model by guessing its URL from familiarity with Anthropic's URL
+        conventions for other models. They have been using it since. The breach did not require a zero-day. It required
+        pattern recognition.</p>
 
-      <p>The breach was facilitated in part by an individual employed at a third-party contractor working for Anthropic.
-        The same group had access to other unreleased Anthropic models. Weeks earlier, source maps for Claude Code had
-        been accidentally published due to a misconfiguration — a missing entry in an .npmignore file — exposing the
-        model's source code to anyone who looked for it.</p>
+      <p>
+        A second exposure followed weeks earlier, when source maps for Claude Code were
+        accidentally published due to a missing entry in an <code>.npmignore</code> file. Static
+        analysis tools have been able to catch this class of error for years. These are not novel
+        attack surfaces — they are the ordinary texture of misconfigured builds and predictable
+        naming schemes. The same category of failure accounts for the majority of production
+        breaches across the industry: exposed environment variables, open S3 buckets, default
+        credentials left in place, API keys committed to public repositories. The zero-day is the
+        exception. The misconfiguration is the rule.
+      </p>
 
-      <p>Neither breach required sophisticated capability. The URL access required pattern recognition. The source map
-        exposure required a missing line in a build configuration file. These are not novel zero-day exploits. They are
-        elementary operational security failures of the kind that deterministic static analysis tools have been able to
-        catch for years. The gap between the claimed capability — finding critical vulnerabilities in major companies'
-        production systems — and the demonstrated practice — shipping with a misconfigured .npmignore and predictable
-        URL conventions — is not subtle. It is the gap between what an organisation says it can do and what it actually
-        does with that capability when it matters most.</p>
+      <p>
+        What makes the Mythos case structurally interesting is not the embarrassment of the
+        breach. It is what the breach implies about the model's actual deployment. Grant, for the
+        sake of argument, that Mythos performs exactly as claimed — that it can identify critical
+        vulnerabilities in production systems. The most natural application of that capability is
+        continuous audit of the organisation's own infrastructure. The URL access and the
+        <code>.npmignore</code> exposure suggest one of three things: the model was not running on
+        Anthropic's own systems, it was running and not acting on its findings, or it was running
+        and findings were not reaching the people responsible for remediation. None of these is a
+        reassuring interpretation — and critically, none of them depends on whether the capability
+        claim is true. The indictment holds either way.
+      </p>
 
-      <p>The logical structure of the failure is worth stating plainly. If Mythos is as capable as claimed, it should
-        have been running on Anthropic's own deployment infrastructure before release. It demonstrably was not, or was
-        not acting on its findings. This means either the capability is overstated, or the organisation does not trust
-        its own tool enough to depend on it for its most critical systems — while simultaneously arguing that others
-        should be denied access to it for safety reasons. Neither position is defensible. Both destroy the closure
-        argument from the inside.</p>
+      <div class="thesis">
+        Detection is not remediation. A finding that does not reach the right person, at the
+        right time, through a process that produces a fix, contributes nothing to security
+        regardless of how sophisticated the underlying model is.
+      </div>
 
-      <p>OpenAI read the situation correctly in real time. Within days of the Mythos announcement, they released
-        GPT-5.4-Cyber with the stated intention of making it as widely available as possible. The competitor understood
-        that the dangerous-and-closed framing was strategically untenable the moment the Discord access became public.
-        The capability was out. The only remaining question was whether the defensive community would have access to it
-        too.</p>
+      <p>
+        This is the limitation the closure argument consistently underweights. The gap between
+        what a model can identify and what an organisation actually patches is where most security
+        failures live. The responsible disclosure community has a name for this interval: patch
+        lag. The vulnerability exists. The knowledge of it exists. The breach happens in the space
+        between discovery and remediation — or because remediation never happened at all.
+      </p>
+
+      <p>
+        Closing public access to the model shifts none of that. It leaves the gap intact while
+        ensuring that the organisations best positioned to audit their own systems for the same
+        class of failure — the ones without dedicated security teams — remain without the tool.
+        The capability that was declared too dangerous for public access demonstrably did not
+        protect the organisation that declared it. The lesson is not that the capability is
+        overstated. It is that capability without process is not security.
+      </p>
 
       <h2><span class="round-num">X</span>The Patch That Never Shipped</h2>
 
-      <p>There is a simpler way to state what closed access actually means in practice. When a capability exists and bad
-        actors gain access to it before defenders are ready, that is not an argument against open access. It is the
+      <p>There is a simpler way to state what closed access actually means in practice. When a capability exists and
+        bad actors gain access to it before defenders are ready, that is not an argument against open access. It is the
         permanent condition of security. The question is always what compresses the time between exposure and defense.
       </p>
 
@@ -556,10 +318,12 @@
         security domain. The security community's answer was never restriction — it was infrastructure: bug bounties,
         CVE databases, open threat intelligence feeds, public vulnerability research. All of it depends on the
         assumption that broad access to offensive knowledge produces faster and more robust defense than restricted
-        access does. The alternative — hiding vulnerabilities and hoping adversaries don't find them independently — has
+        access does. The alternative — hiding vulnerabilities and hoping adversaries don't find them independently —
+        has
         a name. It is called the NSA's EternalBlue strategy. The outcome is documented in the previous section.</p>
 
-      <p>Closing access to avoid the scenario where bad actors move before defenders is equivalent to arguing that CVEs
+      <p>Closing access to avoid the scenario where bad actors move before defenders is equivalent to arguing that
+        CVEs
         should not be published because attackers read them too. Technically true. Net effect: the sophisticated
         attacker finds the vulnerability anyway; the defender never gets the patch. The only population that closed
         access reliably protects against is the unsophisticated opportunistic actor — and that is precisely the
@@ -567,39 +331,44 @@
 
       <h2><span class="round-num">XI</span>What Remains</h2>
 
-      <p>The closure argument has now been walked through every available position, and each one collapses on contact
-        with physical and historical reality. Closing weights fails because of distillation. Closing API access fails
-        because of independent development. Restricting compute fails because persistent adversaries build domestic
-        alternatives and the hardware threshold keeps falling as efficient architectures proliferate. The framing fails
-        because the announcement is the signal. The security posture fails because opacity protects incumbents, not the
-        public. And the Mythos incident demonstrates all of it simultaneously, in a single day, through a hobby Discord
-        channel.</p>
+      <p>Every argument for closure ultimately rests on the same assumption: that safety comes from reducing access to
+        capability.</p>
 
-      <p>It is worth being precise about what this argument is and is not. Closed weights are a legitimate IP decision.
-        No organisation is obligated to publish what it builds. The objection here is not to proprietary models — it is
-        to the second, stronger claim: that the public should be prevented from interacting with the capability
-        entirely. That claim has never been made for ordinary closed software. It is being made selectively, for AI, by
-        the organisations that benefit most commercially from its acceptance. The criticism of Mythos was never "release
-        the weights." It was "you are asserting the right to determine what capabilities society may access, with no
-        external oversight and a direct financial stake in the answer."</p>
+      <p>The historical record suggests the opposite. Safety emerges when defensive capacity grows at least as quickly
+        as offensive capacity. The mechanism differs across domains, but the pattern repeats. Aviation became safe
+        because incidents were shared. Cybersecurity became safer because vulnerabilities were disclosed and patched.
+        Public health became safer because warning signs, reporting systems, and detection knowledge were distributed
+        widely enough that ordinary people could recognise danger before it became catastrophe.</p>
 
-      <p>What remains after that distinction is drawn is not a security argument. It is an incumbency argument: a
-        strategy that preserves first-mover advantage for whoever currently holds frontier capability while that
-        capability diffuses to everyone else anyway, through the least accountable channels, without the accompanying
-        defensive ecosystem that openness would have produced.</p>
+      <p>The lesson is not that dangerous capabilities are harmless. It is that dangerous capabilities do not remain
+        confined to the institutions that discover them. They diffuse. Sometimes through publication. Sometimes
+        through
+        theft. Sometimes through independent rediscovery. Sometimes through simple persistence by motivated
+        adversaries.
+        The mechanism changes. The outcome rarely does.</p>
 
-      <p>There is a genuine boundary condition worth preserving. Systems explicitly optimised for narrow weapons
-        applications — autonomous targeting, pathogen synthesis, cyberweapon generation — warrant different treatment,
-        closer to the nuclear case. But applying that logic to general-purpose models is a category error. A general
-        model may actually be less dangerous than a purpose-built offensive system, because generalisation and
-        optimisation for specific harm are different properties. The history of concrete damage from technology
-        overwhelmingly implicates narrow optimised systems, not broad ones.</p>
+      <p>Once that reality is accepted, the question changes. The relevant policy problem is no longer how to prevent
+        capability from spreading indefinitely. The relevant policy problem is how to ensure that defensive
+        infrastructure spreads faster than offensive use.</p>
 
-      <p>The productive version of this debate is not whether to release — the answer to that question is now settled
-        empirically and historically. The productive version is what governance structures, staged release norms, and
-        defensive infrastructure should accompany openness. Staged, responsible, disclosed — like vulnerability
-        disclosure, like pharmaceutical adverse event reporting, like aviation near-miss databases. Open foundations
-        with governance layers, not closed foundations with no external accountability.</p>
+      <p>Closed weights are a legitimate intellectual property choice. No organisation is required to publish what it
+        builds. But the stronger claim—that society itself should be denied access because a capability is too
+        dangerous—requires demonstrating that restriction produces more security than preparation. The evidence
+        presented so far points in the opposite direction.</p>
+
+      <p>The Mythos episode is instructive not because it was uniquely embarrassing, but because it compressed the
+        entire closure argument into a single case study. A capability was declared too dangerous for public access.
+        Access leaked anyway. The people most likely to benefit from defensive exposure were excluded. The people most
+        motivated to obtain the capability immediately gained a reason to pursue it. The capability diffused. The
+        inoculation did not.</p>
+
+      <p>What remains, then, is not a choice between safety and openness. It is a choice between two security
+        models. The first assumes that capability can be successfully concentrated indefinately. The second assumes
+        that
+        capability will eventually spread and focuses on preparing society for that reality. History has been
+        unusually
+        consistent about which model survives contact with reality.</p>
+
 
       <div class="closing">
         <p>Closing a physics textbook does not make the physics go away. It ensures that the people who most need to

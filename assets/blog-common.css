@@ -39,6 +39,212 @@ a {
     padding: 0 1.5rem 4rem;
 }
 
+.blog-article {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+.blog-article .wrap {
+    max-width: 720px;
+    padding: 0 2rem;
+}
+
+.blog-article header {
+    text-align: center;
+}
+
+.blog-article article {
+    padding: 4rem 0 6rem;
+}
+
+.blog-article h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.blog-article h1 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.blog-article .subtitle {
+    font-style: italic;
+    font-size: 1.15rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.blog-article .byline {
+    margin-top: 1.6rem;
+}
+
+.blog-article .thesis {
+    border-left: 4px solid var(--accent);
+    background: var(--cream);
+    padding: 1.6rem 2rem;
+    margin: 3rem 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.blog-article .thesis::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: -1rem;
+    left: 0.8rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.blog-article .thesis-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.blog-article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 3.5rem 0 1rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+.blog-article h2 .round-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.blog-article h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem;
+}
+
+.blog-article .closing {
+    border-top: 2px solid var(--ink);
+    padding-top: 2.5rem;
+    margin-top: 4rem;
+}
+
+.blog-article .closing p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #3a3630;
+    line-height: 1.75;
+}
+
+.blog-article p {
+    margin-bottom: 1.2rem;
+    max-width: 68ch;
+}
+
+.blog-article .intro-graf {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #3a3630;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.blog-article .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+}
+
+.blog-article .divider::before,
+.blog-article .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+}
+
+.blog-article .analogy {
+    border: 1px solid var(--rule);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    background: white;
+}
+
+.blog-article .analogy-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.blog-article .analogy p {
+    font-size: 0.93rem;
+    margin-bottom: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-article header .kicker,
+.blog-article h1,
+.blog-article .subtitle,
+.blog-article .byline {
+    animation: fadeUp 0.6s ease both;
+}
+
+.blog-article h1 {
+    animation-delay: 0.1s;
+}
+
+.blog-article .subtitle {
+    animation-delay: 0.2s;
+}
+
+.blog-article .byline {
+    animation-delay: 0.3s;
+}
+
 .blog-header,
 header {
     padding: 3rem 0 2rem;
