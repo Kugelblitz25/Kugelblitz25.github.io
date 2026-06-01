@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kugelblitz25 | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0e0d0b;
+      --paper: #f5f0e8;
+      --cream: #ede8d8;
+      --accent: #c0392b;
+      --muted: #7a7165;
+      --rule: #cfc9b8;
+      --card: #fffdf8;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(192, 57, 43, 0.08), transparent 30%),
+        radial-gradient(circle at top right, rgba(14, 13, 11, 0.05), transparent 24%),
+        linear-gradient(180deg, #f8f3eb 0%, var(--paper) 100%);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    header {
+      padding: 3rem 0 2rem;
+      border-bottom: 2px solid var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 31px,
+          var(--rule) 31px,
+          var(--rule) 32px);
+      opacity: 0.26;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      position: relative;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      position: relative;
+      margin: 0.55rem 0 0.9rem;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.9rem, 8vw, 5.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      position: relative;
+      max-width: 70ch;
+      margin: 0;
+      color: #37322c;
+      font-size: 1.08rem;
+    }
+
+    .hero-links {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.6rem;
+    }
+
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      border: 1px solid var(--rule);
+      background: rgba(255, 253, 248, 0.82);
+      padding: 0.78rem 1rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding-top: 2.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--rule);
+      background: rgba(255, 253, 248, 0.86);
+      box-shadow: 0 14px 30px rgba(14, 13, 11, 0.05);
+      padding: 1.35rem;
+    }
+
+    .panel h2 {
+      margin: 0 0 0.85rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+    }
+
+    .meta-label {
+      display: inline-block;
+      margin-bottom: 0.45rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .summary p {
+      margin: 0 0 1rem;
+      color: #37322c;
+    }
+
+    .facts {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .fact {
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.04rem;
+    }
+
+    .project-grid {
+      margin-top: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .project {
+      padding: 1.1rem;
+      border: 1px solid var(--rule);
+      background: var(--card);
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .project .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .project .type,
+    .project .stack {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .project p {
+      margin: 0;
+      color: #37322c;
+    }
+
+    .section {
+      margin-top: 1.25rem;
+    }
+
+    .section h2 {
+      margin: 0 0 0.9rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .list-item {
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .list-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .list-item h3 {
+      margin: 0 0 0.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+    }
+
+    .list-item p {
+      margin: 0;
+      color: #37322c;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: 0 1rem 3rem;
+      }
+
+      header {
+        padding-top: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+    <header>
+      <div class="eyebrow">Portfolio</div>
+      <h1>Vighnesh Nayak</h1>
+      <p class="intro">Mechanical Engineering student exploring the intersection of ML, robotics, and IoT, with a focus
+        on practical systems, experiments, and building things that ship.</p>
+      <nav class="hero-links">
+        <a href="blogs/index.html">Blogs</a>
+        <a href="README.md">README</a>
+        <a href="https://linkedin.com/in/vighnesh-hareesh-nayak">LinkedIn</a>
+        <a href="mailto:vighneshnayak203@gmail.com">Email</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="grid">
+        <article class="panel summary">
+          <span class="meta-label">About</span>
+          <h2>Building across ML, robotics, and hardware.</h2>
+          <p>I work at the intersection of perception, automation, and embedded systems. The projects below are
+            representative of the kinds of problems I like: noisy data, constrained hardware, and workflows that benefit
+            from automation.</p>
+          <div class="project-grid">
+            <div class="project">
+              <span class="type">Featured project</span>
+              <div class="title">Sign Language Video to Audio Conversion</div>
+              <p>Video-to-audio translation pipeline using a modified I3D backbone and spectrogram generation.</p>
+              <span class="stack">Python · PyTorch · Librosa</span>
+            </div>
+            <div class="project">
+              <span class="type">Featured project</span>
+              <div class="title">Cargo Bots</div>
+              <p>Warehouse swarm robotics simulation with localization, planning, and control.</p>
+              <span class="stack">Python · OpenCV · ESP32</span>
+            </div>
+            <div class="project">
+              <span class="type">Featured project</span>
+              <div class="title">Local Moodle</div>
+              <p>Automation script for downloading and organizing Moodle content and forum posts.</p>
+              <span class="stack">Python · Selenium · BeautifulSoup</span>
+            </div>
+            <div class="project">
+              <span class="type">Featured project</span>
+              <div class="title">Topology Optimization</div>
+              <p>Optimization framework for robotic gripper design with FEniCS and PyVista.</p>
+              <span class="stack">Python · FEniCS · PyVista</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel">
+          <span class="meta-label">Snapshot</span>
+          <div class="facts">
+            <div class="fact">
+              <strong>Education</strong>
+              <p>B.Tech in Mechanical Engineering, IIT Bombay. Minor in Artificial Intelligence and Data Science.</p>
+            </div>
+            <div class="fact">
+              <strong>Achievements</strong>
+              <p>Top 2.3 percentile in JEE-Advanced, K-CET rank 123, and second place in Astromania-2022 quiz.</p>
+            </div>
+            <div class="fact">
+              <strong>Interests</strong>
+              <p>AI, machine learning, robotics, IoT, and systems that make tedious workflows vanish.</p>
+            </div>
+            <div class="fact">
+              <strong>Skills</strong>
+              <p>Python, C++, JavaScript, SQL, TensorFlow, OpenCV, Git, LaTeX, Linux.</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section panel">
+        <span class="meta-label">Highlights</span>
+        <h2>Selected work</h2>
+        <div class="list">
+          <div class="list-item">
+            <h3>Sign Language Video to Audio Conversion</h3>
+            <p>Converted sign language videos into audio outputs using video feature extraction, spectrograms, and
+              speech synthesis tools.</p>
+          </div>
+          <div class="list-item">
+            <h3>Musical Instruments Separation Using Deep Neural Networks</h3>
+            <p>Built an audio source separation pipeline around STFT features and a U-Net architecture.</p>
+          </div>
+          <div class="list-item">
+            <h3>IoT Monitoring System</h3>
+            <p>Developed an enterprise-grade monitoring solution with real-time event triggering and time-series schema
+              design.</p>
+          </div>
+          <div class="list-item">
+            <h3>Joint Dictionary Learning for Color Image Demosaicing</h3>
+            <p>Created an image-processing workflow that improved PSNR over GCBI with sparse dictionary learning.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section panel">
+        <span class="meta-label">Connect</span>
+        <h2>Reach out</h2>
+        <p>Find the blogs in <a href="blogs/index.html">blogs/index.html</a>, or use the links below if you want the
+          shorter path.</p>
+        <div class="hero-links">
+          <a href="blogs/index.html">Blogs</a>
+          <a href="https://github.com/Kugelblitz25">GitHub</a>
+          <a href="mailto:vighneshnayak203@gmail.com">Email</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>Portfolio landing page powered by index.html</footer>
+  </div>
+</body>
+
+</html>

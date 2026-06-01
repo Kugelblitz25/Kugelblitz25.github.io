@@ -1,8 +1,0 @@
-title: Vighnesh Hareesh Nayak
-email: vighneshnayak203@gmail.com
-description: Portfolio showcasing my projects, skills, and achievements.
-url: "https://Kugelblitz25.github.io/Kugelblitz25"
-github_username: Kugelblitz25
-remote_theme: pages-themes/slate@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one

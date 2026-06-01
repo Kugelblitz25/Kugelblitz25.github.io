@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vault & The Virus — On Closing AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="../assets/blog-common.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0e0d0b;
+      --paper: #f5f0e8;
+      --cream: #ede8d8;
+      --muted: #7a7165;
+      --rule: #cfc9b8;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--ink);
+      padding: 3rem 0 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+      opacity: 0.4;
+    }
+
+    .kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      position: relative;
+      margin: 0.6rem 0 0.4rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--muted);
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .byline {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1.6rem;
+      position: relative;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    article {
+      padding: 4rem 0 6rem;
+    }
+
+    .thesis {
+      border-left: 4px solid var(--accent);
+      background: var(--cream);
+      padding: 1.6rem 2rem;
+      margin: 3rem 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .thesis::before {
+      content: '"';
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: 0.2;
+      position: absolute;
+      top: -1rem;
+      left: 0.8rem;
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+
+    .thesis-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-style: normal;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    h2 .round-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .closing {
+      border-top: 2px solid var(--ink);
+      padding-top: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .closing p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #3a3630;
+      line-height: 1.75;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      max-width: 68ch;
+    }
+
+    .intro-graf {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #3a3630;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .analogy {
+      border: 1px solid var(--rule);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      background: white;
+    }
+
+    .analogy-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .analogy p {
+      font-size: 0.93rem;
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 2px solid var(--ink);
+      padding: 2rem 0;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header .kicker,
+    h1,
+    .subtitle,
+    .byline {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      animation-delay: 0.1s;
+    }
+
+    .subtitle {
+      animation-delay: 0.2s;
+    }
+
+    .byline {
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+
+<body style="--accent: #1a4a6b;">
+
+  <header>
+    <div class="wrap">
+      <p class="kicker">Essay &nbsp;·&nbsp; Artificial Intelligence &nbsp;·&nbsp; Security &nbsp;·&nbsp; Governance</p>
+      <h1>The Vault<br>&amp; the <em>Virus</em></h1>
+      <p class="subtitle">Why closing access to frontier AI produces the precise outcomes it claims to prevent — and
+        what the history of every dangerous technology tells us about why.</p>
+      <p class="byline">June 2026</p>
+    </div>
+  </header>
+
+  <article>
+    <div class="wrap">
+
+      <p class="intro-graf">There is a position, held with genuine conviction by serious people, that the most powerful
+        AI systems should be locked away — accessible only to vetted institutions, audited deployments, and trusted
+        partners. The argument sounds like prudence. It is, on examination, closer to its opposite: a strategy that
+        concentrates risk, destroys defensive infrastructure, and has now, in the case of Anthropic's own Mythos model,
+        produced a textbook demonstration of its own failure on the day it was announced.</p>
+
+      <div class="thesis">
+        <span class="thesis-label">The Claim Under Scrutiny</span>
+        Closing access to frontier AI models makes the world safer by preventing dangerous capabilities from reaching
+        malicious actors.
+      </div>
+
+      <h2><span class="round-num">I</span>The Dual-Use Fallacy</h2>
+
+      <p>The closure argument begins with a premise that sounds obvious: powerful tools, in the wrong hands, cause harm.
+        Therefore restrict the tools. The problem is that this logic, applied consistently, would have locked away
+        Linux, strong cryptography, the internet, and the printing press. Every one of those technologies was dual-use.
+        Every one enabled both extraordinary human progress and genuine harm. None were made safer by restriction; all
+        became more useful and more manageable through the development of norms, institutions, and defensive
+        infrastructure that only open access made possible.</p>
+
+      <p>What the closure argument actually proposes is not safety — it is a shift of power. Closing a general-purpose
+        AI capability does not make the capability unavailable; it makes the capability available only to the
+        organisation that controls it. That is a political and economic outcome dressed in the language of safety. The
+        question it refuses to answer is: safer for whom, and compared to what?</p>
+
+      <div class="analogy">
+        <p class="analogy-title">On the Nature of Knowledge</p>
+        <p>Nuclear material is dangerous at rest. Enriched uranium in a container is a threat independent of anyone's
+          knowledge or intent. AI is dangerous only in combination with human agency — it is pure knowledge, and
+          knowledge has a different relationship to containment than matter does. You can build a fence around uranium.
+          You cannot build a fence around an idea that thousands of researchers worldwide are independently converging
+          on.</p>
+      </div>
+
+      <h2><span class="round-num">II</span>Two Claims, One Argument</h2>
+
+      <p>The closure debate is routinely framed as open weights versus closed weights. That framing obscures the more
+        important distinction. There are actually two separate claims being made, and they carry entirely different
+        burdens of proof.</p>
+
+      <p>The first claim is an intellectual property claim: we built this model, therefore the weights are proprietary.
+        This requires no special justification. It is the standard position of every closed-source software company.
+        Nobody disputes it as a category. A lab that trains a model and chooses not to release the weights is making the
+        same decision as a company that ships a binary without publishing the source. The weights are their IP.</p>
+
+      <p>The second claim is a governance claim: this capability is so dangerous that the public must not be permitted
+        to interact with it at all, and we are the appropriate authority to make and enforce that determination. This
+        claim is categorically different. It is not a licensing decision. It is an assertion of regulatory power that
+        the organisation was never granted, over a public that never consented to the arrangement. The burden of proof
+        required to justify restricting access is an order of magnitude higher than the burden required to protect IP —
+        and it must clear that bar without appeal to the same commercial interests that benefit from the restriction.
+      </p>
+
+      <p>The conflation of these two claims is doing most of the work in the closure argument. Ordinary closed models
+        attract no particular criticism because they are making the first claim only. Mythos attracted a qualitatively
+        different response because it made the second claim: not just that the weights were proprietary, but that
+        society should be prevented from interacting with the capability entirely. That is not a software decision. It
+        is a political one, and it demands political scrutiny.</p>
+
+      <div class="analogy">
+        <p class="analogy-title">The Burden of Proof Asymmetry</p>
+        <p>"We own this model" requires only that you built it. "Society may not access this model" requires that you
+          demonstrate the danger is real, that your judgement is trustworthy, that no alternative governance structure
+          exists, and that your commercial interest in the restriction does not contaminate the safety argument. The
+          second claim has never cleared that bar. It has simply been asserted, with confidence, by the organisations
+          that benefit most from it being accepted.</p>
+      </div>
+
+      <h2><span class="round-num">III</span>The Bottleneck Is Never the Book</h2>
+
+      <p>In 1994, a seventeen-year-old named David Hahn built a functional neutron source in his mother's garden shed in
+        Michigan. He used publicly available chemistry textbooks, mail-order materials, and correspondence with
+        regulatory bodies who did not realise what he was building. He got surprisingly far. The limiting factor was not
+        knowledge — it was isotope acquisition. The physical substrate was the bottleneck, not the synthesis of
+        understanding.</p>
+
+      <p>This is the correct model for thinking about AI and dangerous capability. A group capable of acquiring nuclear
+        materials or synthesising dangerous chemicals is also capable of finding the knowledge to use them, with or
+        without AI. The population that AI meaningfully assists is not the determined state-level actor — it is the
+        opportunistic lower-skilled one. And the question then becomes whether AI raises the defensive capability for
+        that same population equally. The evidence suggests it does: AI-assisted fraud detection, anomaly
+        identification, and security auditing all benefit from the same general capability that improves the attacker's
+        toolkit.</p>
+
+      <p>AI is an accelerator, not an originator. It reduces the friction of synthesising existing knowledge. So does a
+        skilled Google search, a good research librarian, or a PhD supervisor. The difference is speed and accessibility
+        — a difference of degree, not of kind. The public debate has consistently mistaken acceleration for invention of
+        new danger, and that category error is doing enormous work in the closure argument.</p>
+
+      <h2><span class="round-num">IV</span>The Geopolitical Boomerang</h2>
+
+      <p>The closure argument has a structural failure that becomes visible the moment you trace its geopolitical
+        consequences. Full closure — banning export of open weights, restricting high-end compute, cutting off foreign
+        cloud access — does not prevent capable adversaries from developing AI. It converts AI development from a
+        commercial race into a national survival mandate. The one-time capital cost of building a sovereign parallel
+        ecosystem, however large, becomes trivially justifiable against the framing of existential strategic deficit.
+      </p>
+
+      <p>Once that fixed cost is paid and the parallel infrastructure is operational, the original gatekeeper loses one
+        hundred percent of their leverage. The capability was not stopped; it was replicated entirely outside any sphere
+        of visibility, auditing, or diplomatic influence. This is not a theoretical prediction — it is the documented
+        history of nuclear technology, space technology, and semiconductor manufacturing. The Soviet nuclear programme
+        reached capability four years after the most aggressively secured scientific effort in history. Chinese orbital
+        capability developed regardless of ITAR. Huawei's Ascend chip series accelerated in direct response to NVIDIA
+        export restrictions.</p>
+
+      <div class="analogy">
+        <p class="analogy-title">Full Closure: The Complete Failure Sequence</p>
+        <p>Full closure forces sovereign adaptation at high one-time cost. Once that cost is paid, control is lost
+          entirely and the capability now exists in an ecosystem completely outside diplomatic reach. Partial closure is
+          worse: the capability leaks anyway through distillation and API exploitation, but the public never gains the
+          direct experience needed to develop accurate threat models. You get the proliferation without the inoculation.
+        </p>
+      </div>
+
+      <p>The compute restriction argument follows the same arc. The assumption that restricting high-end GPU exports
+        prevents capable actors from developing frontier AI ignores that training does not strictly require data centre
+        hardware — it requires time and electricity. Consumer-grade GPUs are inefficient for training large models, but
+        inefficiency is a cost, not a barrier. Meanwhile the restrictions raise barriers for universities, open
+        researchers, and the civil society organisations building defensive infrastructure — the population least likely
+        to cause harm and most likely to produce safety research that eventually benefits everyone.</p>
+
+      <h2><span class="round-num">V</span>The Framing Is the Signal</h2>
+
+      <p>There is a mechanism in the closure debate that receives almost no attention: the announcement itself is the
+        proliferation event. Before a lab declares that its model is too dangerous to release due to its exceptional
+        offensive capability, that model is one of many research artefacts in a crowded field. After the announcement,
+        it is the confirmed location of the most strategically valuable capability on the planet, certified by the
+        people who built it.</p>
+
+      <p>The security framing does not distribute fear evenly. It concentrates trust — in the developers. It converts a
+        positive-sum capability race into a zero-sum strategic competition. And it provides the moral and strategic
+        justification for every extreme acquisition measure an adversary might consider: state-sponsored theft, insider
+        recruitment, supply chain compromise. A foreign intelligence service that might have deprioritised AI lab
+        penetration now has a board-approved mandate and unlimited budget, courtesy of the press release that announced
+        the danger.</p>
+
+      <div class="analogy">
+        <p class="analogy-title">The Better Framing</p>
+        <p>Consider the difference between two announcements. The first: "Our model is so dangerous it can hack critical
+          infrastructure — we will not release it." The second: "Our model found previously unknown bugs in
+          widely-deployed production systems — here are the CVEs, here are the patches, here is the API." Same
+          underlying capability. The first certifies a high-value target and mobilises every adversary with strategic
+          motivation. The second distributes the defensive benefit, collapses the acquisition incentive, and earns trust
+          through demonstrated outcomes rather than claimed authority.</p>
+      </div>
+
+      <p>The practical consequence is that closing a model while announcing its offensive capability does not protect
+        anyone from the capability — it ensures the people who most need to defend against it have no access to it,
+        while every motivated adversary now has a certified reason to acquire it through whatever channel is available.
+        The announcement does more for the attacker's intelligence picture than most espionage operations could achieve
+        independently.</p>
+
+      <h2><span class="round-num">VI</span>The Inoculation Argument</h2>
+
+      <p>In September 1987, a worker at a radiotherapy clinic in Goiânia, Brazil, broke open an abandoned caesium-137
+        teletherapy unit. The glowing blue powder inside looked magical. It was shared through a neighbourhood. Four
+        people died. Dozens were contaminated. Hundreds required monitoring. The harm came not from radiological
+        knowledge being too widely distributed — it came from its being too narrowly distributed. The people handling
+        the material did not know what they were handling because the knowledge of what caesium-137 looked like and what
+        it could do had not reached them.</p>
+
+      <p>The lesson the nuclear safety community drew from Goiânia was not further restriction. It was wider
+        distribution of detection awareness, reporting norms, and public health education. Known-signature awareness
+        saves lives. Opacity kills. The same principle applies to AI capability: a population with no direct experience
+        of what AI-generated phishing, synthetic media, or automated social engineering actually looks like is a
+        population that cannot defend against it.</p>
+
+      <p>There is a subtler failure mode that the controlled-demo approach introduces. Showing users demonstrations of
+        AI-generated attacks produces a mental model anchored to the demonstrated capability. That model becomes their
+        filter. The actual adversarial deployment is optimised against exactly that filter. The demo does not show you
+        the threat — it shows you a safely bounded version that produces false confidence about recognising the real
+        one. A user who has spent time with an open model understands its capability range from direct experience. That
+        knowledge is durable and calibrated in a way no awareness training produces.</p>
+
+      <h2><span class="round-num">VII</span>The Accountability Gap</h2>
+
+      <p>There is a version of the closure argument that deserves to be taken seriously: perhaps closed labs, despite
+        their incentive problems, are simply more careful than the distributed chaos of open deployment. The historical
+        record does not support this. Closed labs face simultaneous pressure to attract investment, maintain competitive
+        advantage, avoid regulation, and project safety credibility. These incentives are nearly perfectly designed to
+        produce motivated underreporting of dangerous capabilities. A lab that discovers its model has unexpected
+        offensive properties has strong financial incentives to classify that internally and remediate quietly rather
+        than disclose. There is no mandatory adverse event reporting system, no equivalent of the aviation near-miss
+        database that has made commercial flight so safe precisely because failures are shared rather than buried.</p>
+
+      <p>Safety research is also more productive on open models. Interpretability, alignment, and robustness work all
+        require access to weights. If safety research is concentrated inside the same labs building frontier models, you
+        get captured safety teams with commercial conflicts of interest rather than independent verification. The open
+        source security community has demonstrated for decades that public codebases receive more scrutiny, find more
+        bugs, and develop more robust defensive tooling than proprietary equivalents. There is no reason to expect AI to
+        differ.</p>
+
+      <h2><span class="round-num">VIII</span>EternalBlue</h2>
+
+      <p>In 2017, a group calling itself the Shadow Brokers leaked a collection of offensive cyber tools from the United
+        States National Security Agency. Among them was EternalBlue — an exploit targeting a critical vulnerability in
+        Microsoft's SMB protocol. The NSA had known about the vulnerability for years. Microsoft had no patch. The
+        global infrastructure had no inoculation. Within weeks, WannaCry and NotPetya used EternalBlue to cause an
+        estimated ten billion dollars in damage. Hospitals diverted patients. Shipping infrastructure froze.
+        Manufacturing plants went dark.</p>
+
+      <p>The NSA's logic for keeping EternalBlue secret was identical to the AI closure argument at every step. We found
+        something powerful. The public is not ready. We can control this better than the ecosystem can. The security
+        framing justifies the secrecy. Each assumption failed in sequence. Closure created a high-value target that
+        attracted sophisticated theft. The theft delivered the capability to criminal operations with zero safety
+        investment and zero defensive accompaniment. The public was completely unprepared because the inoculation had
+        never been distributed. And the organisation that hoarded the capability bore none of the cost while hospitals
+        and shipping companies paid it in full.</p>
+
+      <p>The responsible disclosure norm the security community developed in the years since is not idealism. It is hard
+        empirical learning from exactly this outcome: find the vulnerability, notify the developer privately, agree on a
+        patch timeline, then publish. The ecosystem gets the fix before the exploit is weaponised. EternalBlue is the
+        complete worked example of what happens when the closure argument wins. The AI governance conversation is being
+        asked to learn the same lesson without paying the same tuition.</p>
+
+      <h2><span class="round-num">IX</span>The Mythos Proof</h2>
+
+      <p>On April 7th, 2026, Anthropic announced Claude Mythos Preview — a model described as so capable at offensive
+        cybersecurity that it could not be released to the public. It was made available to a small number of trusted
+        partners under the Project Glasswing initiative. On the same day, a group communicating through a private
+        Discord channel accessed the model by guessing its URL, based on familiarity with Anthropic's URL formatting
+        conventions for other models. They have been using it regularly since.</p>
+
+      <p>The breach was facilitated in part by an individual employed at a third-party contractor working for Anthropic.
+        The same group had access to other unreleased Anthropic models. Weeks earlier, source maps for Claude Code had
+        been accidentally published due to a misconfiguration — a missing entry in an .npmignore file — exposing the
+        model's source code to anyone who looked for it.</p>
+
+      <p>Neither breach required sophisticated capability. The URL access required pattern recognition. The source map
+        exposure required a missing line in a build configuration file. These are not novel zero-day exploits. They are
+        elementary operational security failures of the kind that deterministic static analysis tools have been able to
+        catch for years. The gap between the claimed capability — finding critical vulnerabilities in major companies'
+        production systems — and the demonstrated practice — shipping with a misconfigured .npmignore and predictable
+        URL conventions — is not subtle. It is the gap between what an organisation says it can do and what it actually
+        does with that capability when it matters most.</p>
+
+      <p>The logical structure of the failure is worth stating plainly. If Mythos is as capable as claimed, it should
+        have been running on Anthropic's own deployment infrastructure before release. It demonstrably was not, or was
+        not acting on its findings. This means either the capability is overstated, or the organisation does not trust
+        its own tool enough to depend on it for its most critical systems — while simultaneously arguing that others
+        should be denied access to it for safety reasons. Neither position is defensible. Both destroy the closure
+        argument from the inside.</p>
+
+      <p>OpenAI read the situation correctly in real time. Within days of the Mythos announcement, they released
+        GPT-5.4-Cyber with the stated intention of making it as widely available as possible. The competitor understood
+        that the dangerous-and-closed framing was strategically untenable the moment the Discord access became public.
+        The capability was out. The only remaining question was whether the defensive community would have access to it
+        too.</p>
+
+      <h2><span class="round-num">X</span>The Patch That Never Shipped</h2>
+
+      <p>There is a simpler way to state what closed access actually means in practice. When a capability exists and bad
+        actors gain access to it before defenders are ready, that is not an argument against open access. It is the
+        permanent condition of security. The question is always what compresses the time between exposure and defense.
+      </p>
+
+      <p>The entire responsible disclosure pipeline — researcher finds vulnerability, notifies vendor privately, patch
+        ships, CVE publishes — is premised on offensive knowledge reaching the defensive side at the same time it
+        reaches attackers, or sooner. That pipeline has been hard-won over decades. It works because both sides have
+        access to the same information. Closing access breaks the pipeline at the source: defenders cannot patch what
+        they cannot see.</p>
+
+      <p>The "bad actors move first" concern is not a special property of open AI. It is the default state of every
+        security domain. The security community's answer was never restriction — it was infrastructure: bug bounties,
+        CVE databases, open threat intelligence feeds, public vulnerability research. All of it depends on the
+        assumption that broad access to offensive knowledge produces faster and more robust defense than restricted
+        access does. The alternative — hiding vulnerabilities and hoping adversaries don't find them independently — has
+        a name. It is called the NSA's EternalBlue strategy. The outcome is documented in the previous section.</p>
+
+      <p>Closing access to avoid the scenario where bad actors move before defenders is equivalent to arguing that CVEs
+        should not be published because attackers read them too. Technically true. Net effect: the sophisticated
+        attacker finds the vulnerability anyway; the defender never gets the patch. The only population that closed
+        access reliably protects against is the unsophisticated opportunistic actor — and that is precisely the
+        population most capable of being defended against through the open ecosystem that access enables.</p>
+
+      <h2><span class="round-num">XI</span>What Remains</h2>
+
+      <p>The closure argument has now been walked through every available position, and each one collapses on contact
+        with physical and historical reality. Closing weights fails because of distillation. Closing API access fails
+        because of independent development. Restricting compute fails because persistent adversaries build domestic
+        alternatives and the hardware threshold keeps falling as efficient architectures proliferate. The framing fails
+        because the announcement is the signal. The security posture fails because opacity protects incumbents, not the
+        public. And the Mythos incident demonstrates all of it simultaneously, in a single day, through a hobby Discord
+        channel.</p>
+
+      <p>It is worth being precise about what this argument is and is not. Closed weights are a legitimate IP decision.
+        No organisation is obligated to publish what it builds. The objection here is not to proprietary models — it is
+        to the second, stronger claim: that the public should be prevented from interacting with the capability
+        entirely. That claim has never been made for ordinary closed software. It is being made selectively, for AI, by
+        the organisations that benefit most commercially from its acceptance. The criticism of Mythos was never "release
+        the weights." It was "you are asserting the right to determine what capabilities society may access, with no
+        external oversight and a direct financial stake in the answer."</p>
+
+      <p>What remains after that distinction is drawn is not a security argument. It is an incumbency argument: a
+        strategy that preserves first-mover advantage for whoever currently holds frontier capability while that
+        capability diffuses to everyone else anyway, through the least accountable channels, without the accompanying
+        defensive ecosystem that openness would have produced.</p>
+
+      <p>There is a genuine boundary condition worth preserving. Systems explicitly optimised for narrow weapons
+        applications — autonomous targeting, pathogen synthesis, cyberweapon generation — warrant different treatment,
+        closer to the nuclear case. But applying that logic to general-purpose models is a category error. A general
+        model may actually be less dangerous than a purpose-built offensive system, because generalisation and
+        optimisation for specific harm are different properties. The history of concrete damage from technology
+        overwhelmingly implicates narrow optimised systems, not broad ones.</p>
+
+      <p>The productive version of this debate is not whether to release — the answer to that question is now settled
+        empirically and historically. The productive version is what governance structures, staged release norms, and
+        defensive infrastructure should accompany openness. Staged, responsible, disclosed — like vulnerability
+        disclosure, like pharmaceutical adverse event reporting, like aviation near-miss databases. Open foundations
+        with governance layers, not closed foundations with no external accountability.</p>
+
+      <div class="closing">
+        <p>Closing a physics textbook does not make the physics go away. It ensures that the people who most need to
+          understand it — the engineers building defences, the researchers finding fixes, the public developing
+          instincts — remain in the dark while the people with the worst intentions find their own copy. The vault
+          metaphor is seductive because it implies control. What it actually describes, as the record now shows, is a
+          target. And targets get found. They always have.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">The Vault &amp; the Virus &nbsp;·&nbsp; June 2026</div>
+  </footer>
+
+</body>
+
+</html>

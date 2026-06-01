@@ -1,4 +1,8 @@
-# Hi 👋, I'm Vighnesh Nayak
+# Portfolio
+
+The site homepage is now [index.html](https://kugelblitz25.github.io/), and the blog archive lives at [blogs/index.html](https://kugelblitz25.github.io/blogs/index.html).
+
+## Hi 👋, I'm Vighnesh Nayak
 A passionate Mechanical Engineering student exploring the intersection of ML, Robotics, and IoT
 
 ## 👨‍🎓 Education
@@ -121,4 +125,5 @@ Windows | Linux
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/vighnesh-nayak-88058a234)
 [![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kugelblitz253@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white)](https://kugelblitz25.github.io/Kugelblitz25/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white)](https://kugelblitz25.github.io/)
+[![Blogs](https://img.shields.io/badge/Blogs-0F172A?style=for-the-badge&logo=markdown&logoColor=white)](https://kugelblitz25.github.io/blogs/index.html)
