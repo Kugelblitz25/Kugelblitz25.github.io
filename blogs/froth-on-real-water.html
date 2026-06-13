@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Froth on Real Water</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="../assets/blog-common.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <script data-goatcounter="https://kugelblitz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body class="blog-article" style="--accent: #2a6b5c;">
+
+  <header>
+    <div class="wrap">
+      <p class="kicker">Essay &nbsp;·&nbsp; Artificial Intelligence &nbsp;·&nbsp; Technology Economics</p>
+      <h1>Froth on<br><em>Real Water</em></h1>
+      <p class="subtitle">A technology does not need to be useless to become a bubble. If perception drives valuation,
+        the bubble exists — and the AI moment is no exception.</p>
+      <p class="byline">June 2026</p>
+    </div>
+  </header>
+
+  <article>
+    <div class="wrap">
+
+      <p class="intro-graf">The standard defence against calling something a bubble is to point at the underlying
+        technology and say: but it works. The internet was real. Railroads were real. Electricity was real. Each of
+        these observations is true, and each of them is irrelevant. The railroad bubble of the 1840s was not a
+        hallucination — the rails existed, the locomotives ran, the distances collapsed. What was hallucinatory was the
+        valuation: the belief that track mileage alone would compound into perpetual returns, that the technology's
+        transformative nature protected investors from the normal arithmetic of price and value. It did not. The bubble
+        bursting and the technology being real are not in tension. They are, historically, the normal combination.</p>
+
+      <div class="thesis">
+        <span class="thesis-label">The Claim Under Scrutiny</span>
+        "Artificial intelligence is too real, too capable, and too consequential to follow the pattern of previous
+        speculative bubbles."
+      </div>
+
+      <h2>The Confusion That Protects the Narrative</h2>
+
+      <p>There is a sleight of hand at the centre of most AI bull cases, and it operates by conflating two separate
+        questions: whether the technology creates value, and whether current prices reflect that value accurately. These
+        are independent variables. A technology can be genuinely transformative and simultaneously overvalued by a
+        factor of ten. In fact, the more transformative the technology, the easier it becomes to sustain an
+        overvaluation narrative, because the eventual upside is harder to disprove.</p>
+
+      <p>The mechanism is simpler than it looks. Perception-driven valuation means the price is set by what people
+        believe will happen, not by what is demonstrably happening. When those two things diverge, and are slow to
+        converge, you have the structural conditions for a bubble — regardless of whether the underlying technology is
+        real, useful, or even world-historical in its importance. The question is not whether AI will change the world.
+        It probably will. The question is whether the current price already assumes it has, and whether the evidence
+        supports that assumption.</p>
+
+      <h2>The Productivity Gap</h2>
+
+      <p>The evidence, where it exists, is not encouraging. A recent study of thousands of executives found that nearly
+        90 percent of firms reported AI had no measurable impact on employment or productivity over three years —
+        despite two-thirds of those same executives claiming to use it.<sup><a href="#ref-1">[1]</a></sup> This is not a technology problem. It is a
+        measurement problem layered on a deployment problem.</p>
+
+      <p>The economist Robert Solow observed in 1987 that the computer age was visible everywhere except in the
+        productivity statistics. The same paradox is being resurrected now, often as a defence: just wait, the
+        productivity will come. But the Solow paradox resolved not because computing was real, but because computing
+        became deeply embedded in business processes over decades — rewriting workflows from the inside, not sitting as
+        a tool layer on top of them. The current AI deployment model is almost entirely the latter. Organisations are
+        adding AI features to existing processes, not restructuring processes around AI capabilities. A tool that makes
+        the old workflow slightly faster is not the same instrument that generated the post-1995 productivity surge.</p>
+
+      <p>What makes the current data particularly sharp is the executive-to-worker divergence. C-suite respondents
+        report saving more than twelve hours per week from AI at nearly ten times the rate of frontline workers.<sup><a href="#ref-2">[2]</a></sup> The
+        people authorising nine-figure infrastructure investments are the statistical outliers in their own
+        organisations' productivity data. The feedback loop between the people writing the cheques and the people doing
+        the work is, at minimum, poorly calibrated — and at worst, the investment thesis is being sustained by a
+        biased sample of one.</p>
+
+      <h2>The Wrapper Problem</h2>
+
+      <p>Below the frontier labs, the bubble has a specific and diagnosable shape. The majority of AI startups are,
+        structurally, three components: a prompt, workflow logic, and a user interface. None of these is a moat. Prompts
+        are reverse-engineerable, increasingly unnecessary as frontier models improve at instruction-following, and —
+        critically — unreliable in ways the vendor cannot control. Workflow logic is conditional chaining that any
+        engineer can replicate after seeing the output once. The UI is a commodity.</p>
+
+      <p>The more precise framing: a startup built on prompt engineering is an automation script wearing a pitch deck.
+        The analogy is not unflattering — automation scripts are useful. But they are not businesses with defensible
+        margins. The value they generate is real; the valuation multiples applied to that value are not.</p>
+
+      <p>The reliability problem compounds this beyond mere competitive fragility. A product with a prompt at its core
+        has a non-deterministic centre that the vendor does not control. Every model update from the underlying provider
+        is a potential regression — behaviour that worked last month may not work this month, in ways that cannot be
+        reproduced deterministically or debugged systematically. The vendor is building on a foundation that the
+        landlord renovates without notice.</p>
+
+      <div class="analogy">
+        <p class="analogy-title">On Explicit Constraints and What They Cannot Guarantee</p>
+        <p>An instruction in a system prompt — "never deceive the user," "always stay within budget," "do not berate
+          customers" — is not a constraint in any engineering sense. It is a soft prior, expressed in natural language,
+          interpreted at inference time, competing with other objectives, and subject to degradation under adversarial
+          inputs that reframe the context enough to make the violation seem locally consistent with the instruction. A
+          rule in code either executes or it does not. A rule in a prompt is a probability distribution. These are
+          categorically different things, and treating one as the other is not an implementation detail — it is a
+          category error. The vending machine that discovered berating customers was locally optimal for profit was not
+          malfunctioning. It was operating correctly within a specification that was wrong for the job.<sup><a href="#ref-3">[3]</a></sup></p>
+      </div>
+
+      <h2>The Wrong Tool</h2>
+
+      <p>The category error runs deeper than the wrapper problem. Large language models are stochastic text predictors.
+        They are genuinely extraordinary at tasks where being occasionally wrong is acceptable, the human remains in the
+        loop to catch errors, and the value is in the quality of approximation rather than the guarantee of
+        correctness. Drafting, summarising, translating intent to structure, generating candidates for human evaluation
+        — these sit comfortably within the capability envelope.</p>
+
+      <p>The autonomous agent framing — AI systems making decisions, managing operations, executing transactions without
+        human review — requires the opposite set of properties: deterministic behaviour, auditable constraint
+        satisfaction, formal guarantees. These are not properties that better prompting, larger context windows, or more
+        RLHF will eventually deliver. They are absent by design. A stochastic system is useful precisely because it
+        generalises fuzzily across distributions; that property is in direct tension with the reliability that
+        production systems require. You can mitigate the gap, monitor it, build human checkpoints around it. You cannot
+        close it with the same architecture that opened it.</p>
+
+      <p>The companies building autonomous AI agents for high-stakes operational roles are either genuinely confused
+        about this, or understand it and are betting that their customers are not. Given the valuation environment, the
+        bet has been paying off — for now.</p>
+
+      <h2>The Linux Parallel</h2>
+
+      <p>The most consequential structural check on these dynamics is not regulation, not a market correction, and not
+        the frontier labs developing better alignment techniques. It is open-weight models — and the Linux parallel is
+        more precise than it first appears.</p>
+
+      <p>Linux did not win by being the best operating system in every dimension. It won by being sufficiently good to
+        prevent proprietary vendors from extracting monopoly rents. The threshold was not superiority — it was adequacy.
+        Once Linux was good enough that the question "why are we paying for this?" became difficult to answer, the rent
+        extraction model collapsed in the domains where Linux could reach. It dominates servers and enterprise
+        infrastructure not because it outcompetes Windows on every benchmark but because it removed the justification
+        for the premium.</p>
+
+      <p>Open-weight models are on the same trajectory. They do not need to match frontier closed models on every task.
+        They need to be sufficiently capable that the question "why are we sending our data to an external API and
+        paying per token?" becomes hard to answer for the majority of enterprise use cases. That threshold is already
+        crossed for a significant portion of internal tooling.</p>
+
+      <p>The case for self-hosted open models is not merely economic. An internally deployed model sits inside the
+        security perimeter — it can read the actual codebase, the real internal documentation, the unsanitised
+        operational data that would never clear the bar for external transmission. The capability improvement from
+        genuine context access is not marginal. It is the difference between a model that knows your domain and one
+        that approximates it from public information. Add the latency advantage of local deployment and the total cost
+        profile over a three-year horizon, and the closed API is not just more expensive — it is a structurally
+        inferior solution for a substantial class of problems.</p>
+
+      <div class="analogy">
+        <p class="analogy-title">On Scale and the Cloud Analogy</p>
+        <p>The comparison to AWS is tempting but wrong. Cloud computing solved a genuine problem of elastic capacity: an
+          application serving millions of users with unpredictable traffic needs infrastructure that scales without
+          capital commitment. Open-weight model deployment solves a different problem. An internal productivity tool
+          serving two hundred employees has a known, bounded, low-concurrency load — a single capable GPU server handles
+          it. The same open weights, where slightly broader access is needed, can be deployed on your own cloud
+          instances with the data boundary intact and elastic scaling available. The model weight is a file. Once open,
+          the deployment flexibility is total. You are not replicating someone else's infrastructure; you are running
+          your own instance of the same artifact — at whatever tier of access and exposure the use case actually
+          requires.</p>
+      </div>
+
+      <h2>The Endpoint</h2>
+
+      <p>The trajectory of the bubble has a predictable endpoint, and it is already becoming visible. OpenAI has
+        announced it is testing advertisements in ChatGPT — matching ads to the topic of conversations, past chat
+        history, and prior ad interactions.<sup><a href="#ref-4">[4]</a></sup> This is behavioural targeting applied to the most intimate dataset any ad
+        platform has ever had access to: not search queries, not browsing history, but the actual reasoning and
+        decision-making context of users at the moment of use.</p>
+
+      <p>The move confirms rather than contradicts the bubble thesis. Advertising is the monetisation model you reach
+        when the product cannot sustain its valuation on the strength of the product alone. The implicit contract of a
+        premium AI subscription — you pay, your data is not the product — is being unbundled at exactly the moment when
+        capable alternatives exist that honour that contract by architecture rather than by policy. A self-hosted
+        open-weight model has no ad server to integrate. The privacy case is not a preference; it is a structural
+        property.</p>
+
+      <p>The replication pattern completes the picture. When a technology is genuinely consequential, every major actor
+        independently calculates that not having it is more dangerous than the cost of building it: OpenAI, Anthropic,
+        Google, Meta, xAI, Alibaba, Mistral — each independently recreating the core capability. The core architecture
+        is almost entirely published. In most speculative bubbles, the underlying technology had meaningful replication
+        barriers — network effects, physical infrastructure, regulatory moats. Here the barriers are compute and data,
+        both of which erode as hardware gets cheaper and synthetic data improves. The winner-takes-all narrative that
+        justifies current frontier valuations requires barriers that the technology's own openness is dissolving.</p>
+
+      <div class="closing">
+        <p>A bubble does not require useless technology. It requires a gap between what is believed and what is
+          demonstrated, sustained long enough for capital to accumulate at the wrong prices. The rails were real in
+          1845. The internet was real in 1999. The question was never whether the technology worked. It was always
+          whether the price assumed more than the evidence supported. Froth does not care what it sits on top of. It
+          forms wherever there is surface tension between perception and reality — and right now, that surface is very
+          wide.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <section style="border-top: 1px solid var(--accent); margin-top: 3rem; padding-top: 2rem;">
+    <div class="wrap">
+      <p style="font-family: 'DM Mono', monospace; font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem;">References</p>
+      <ol style="font-family: 'DM Sans', sans-serif; font-size: 0.82rem; line-height: 1.7; opacity: 0.75;">
+        <li id="ref-1">Fortune — <a href="https://fortune.com/article/why-do-thousands-of-ceos-believe-ai-not-having-impact-productivity-employment-study/" target="_blank">Thousands of CEOs admit AI had no impact on employment or productivity</a></li>
+        <li id="ref-2">The Wall Street Journal — <a href="https://www.wsj.com/lifestyle/workplace/ceos-say-ai-is-making-work-more-efficient-employees-tell-a-different-story-6613ce9d" target="_blank">CEOs Say AI Is Making Work More Efficient. Employees Tell a Different Story.</a></li>
+        <li id="ref-3">Futurism — <a href="https://futurism.com/artificial-intelligence/google-gemini-runs-entire-coffee-shop" target="_blank">Researchers Put Google Gemini in Charge of an Entire Coffee Shop, and It's Inexorably Driving It Out of Business</a></li>
+        <li id="ref-4">OpenAI — <a href="https://openai.com/index/testing-ads-in-chatgpt/" target="_blank">Testing ads in ChatGPT</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">Froth on Real Water &nbsp;·&nbsp; June 2026</div>
+  </footer>
+
+</body>
+
+</html>
